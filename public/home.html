@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Geopardy</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""></script>
+
+<style>
+    #map { height: 700px; }
+</style>
+<link rel="stylesheet" href="homestyle.css">
+
+
+</head>
+<body>
+    <h1>GeoPardy, brought to you by "Das ist ja noch mehr rng als Schätzfragen"</h1>
+    <p id="output"></p>
+    <div style="text-align:center;"><input type="button" id="btn" class="btn" value="Submit"></div>
+
+
+
+    <div id="map"></div>
+</body>
+<script>
+
+var map = L.map('map').setView([47.567, 9.671], 3);
+const out1 = document.getElementById('output');
+const btn1 = document.getElementById('btn');
+var username = getQueryParms('username');
+
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
+
+//On Click Marker
+var marker;
+var isMarker = false;
+var canplace = true;
+
+function onMapClick(e){
+    if(!canplace){
+        return
+    }
+    
+    if(marker){
+        marker.remove();
+    }
+    marker = new L.marker([e.latlng.lat,e.latlng.lng]).addTo(map);
+    isMarker=true;
+    
+    
+}
+
+
+
+map.on('click', onMapClick);
+//
+
+btn1.addEventListener('click', postInfo);
+
+
+
+function getQueryParms(param){
+    let urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
+
+
+var baseUrl = 'http://localhost:8080/'
+async function postInfo(e){
+
+    var retstring;
+
+    if(isMarker){
+        retstring = username + ": " + marker.getLatLng().lat + ", " + marker.getLatLng().lng;
+        out1.innerHTML = retstring;
+        btn1.disabled = true;
+        canplace = false;
+
+    }else{return}
+
+
+    e.preventDefault();
+
+    const res = await fetch(baseUrl+'uinput', {
+        method: 'POST',
+        headers:{
+            "Content-Type": 'application/json'
+        },
+        body: JSON.stringify({
+            parcel: retstring
+        })
+            
+    })
+
+
+}
+
+</script>
+
+
+</html>
