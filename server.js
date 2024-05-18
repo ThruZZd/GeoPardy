@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 8080
+const port = 10000
 var uArray = []
 
 app.use(express.static('public'))
