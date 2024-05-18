@@ -36,7 +36,7 @@ res.status(200).send('<h1>Danke</h1>')
 })
 
 
-app.listen(port, ()=>{
+app.listen(port,'0.0.0.0', ()=>{
     console.log('Server listening to '+port)
 })
 
