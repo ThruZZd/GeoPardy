@@ -23,7 +23,7 @@ btnrd.addEventListener('click', btCl);
 
 function btCl(){
 
-    if(textfeld.value != null){
+    if(textfeld.value != ''){
         var username = textfeld.value;
         window.location.href = 'home.html?username='+encodeURIComponent(username);
         
