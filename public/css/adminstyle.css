@@ -1,0 +1,73 @@
+/* adminstyle.css */
+
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f8ff; /* Light blue background */
+}
+
+/* Header style */
+h1 {
+    color: #333;
+    font-size: 2em;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Container for buttons and text input */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Adds spacing between elements */
+    margin: 10px 0;
+}
+
+/* Button styles */
+input[type="button"] {
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="button"]:hover {
+    background-color: #0056b3;
+}
+
+/* Text input style */
+input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #333;
+    border-radius: 5px;
+}
+
+/* Winner paragraph style */
+#win {
+    font-size: 1.5em;
+    color: #d9534f; /* Bootstrap danger color for prominence */
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* Map container style */
+#map {
+    flex-grow: 1;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}

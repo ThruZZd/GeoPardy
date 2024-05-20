@@ -20,9 +20,11 @@ io.on('connection', socket=>{
         socket.emit('reveal',rmarkers)
     }
 
+
     socket.on('postU', (posted)=>{
 
         io.emit('adminMarker', posted);
+        
 
     })
 
@@ -41,6 +43,7 @@ io.on('connection', socket=>{
         subOpen = true;
         revealed = false;
         markers=null;
+        rmarkers=[];
         io.emit('fullResetC');
 
     })

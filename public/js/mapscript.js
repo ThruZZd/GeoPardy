@@ -82,6 +82,7 @@ socket.on('fullResetC',()=>{
 socket.on('reveal', (marks)=>{
     if(marker){marker.remove()}
     canplace = false;
+    btn1.disabled = true;
     anchor = new L.marker([marks.aanchor.lat,marks.aanchor.lng],{icon: donIcon}).addTo(map);
     for(let i = 0;i<marks.mmarkers.length;i++){
         

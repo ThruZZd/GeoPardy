@@ -1,29 +1,54 @@
-h1{
-    text-align: center;
-    }
-    
-    input.userrd{
-        padding: 0;
-        height: 50px;
-        position: relative;
-        text-align: center;
-        left: 0;
-        outline: none;
-        border: 2px solid #cdcdcd;
-        border-color: rgba(0,0,0,.15);
-        background-color: white;
-        font-size: 25px;
-        
-    }
-    
-    input.btnrd{
-        margin-top: 10px;
-        background-color: #04AA6D; /* Green */
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-    }
+/* indexstyle.css */
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff; /* Light blue background */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
+/* Header style */
+h1 {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+/* Input field style */
+.userrd {
+  width: 300px;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1.2em;
+  border: 2px solid #333;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Button style */
+.btnrd {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btnrd:hover {
+  background-color: #0056b3;
+}
+
+/* Centering the content */
+div {
+  margin: 10px;
+}
