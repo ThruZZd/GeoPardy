@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Geopardy</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin=""/>
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+crossorigin=""></script>
+
+<style>
+    #map { height: 700px; }
+</style>
+
+
+</head>
+<body>
+    <h1>GeoPardy, brought to you by "Das ist ja noch mehr rng als Schätzfragen"</h1>
+    <p id="output"></p>
+    <div style="text-align:center;"><input type="button" id="btn" class="btn" value="Submit"></div>
+
+
+
+    <div id="map"></div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="js/mapscript.js"></script>
+
+
+</html>
