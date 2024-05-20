@@ -1,7 +1,7 @@
 
 const socket = io();
 
-var map = L.map('map').setView([47.567, 9.671], 3);
+var map = L.map('map',{worldCopyJump:true}).setView([47.567, 9.671], 3);
 const out1 = document.getElementById('output');
 const btn1 = document.getElementById('btn');
 var username = getQueryParms('username');
