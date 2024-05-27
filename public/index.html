@@ -2,21 +2,63 @@
 <html>
 
 <head>
-    <link rel="icon" type="image/png" href="favi.png">
-    <title>GeoPardy</title>
+    <link rel="icon" type="image/png" href="images/favi.png">
+    <title>Jeopardy Toolbox</title>
     <link rel="icon" type="image/x-icon" href="public/favicon.ico">
     <link rel="stylesheet" href="css/indexstyle.css">
 </head>
 
 <body>
-    <h1>Username:</h1>
-
-    <div style="text-align:center;"><input type="text" id="userrd" class="userrd" placeholder="Name..." maxlength="10"></div>
-    <div style="text-align:center;"><input type="button" id="btnrd" class="btnrd" value="Submit"></div>
-
+    <div class="container">
+        <h1>Jeopardy Toolbox by Drasko Mandic</h1>
+        <div class="inputs">
+            <input type="text" id="txtUser" placeholder="Enter your name...">
+        </div>
+        <div class="buttons">
+            <input type="button" id="btnGeopardy" value="Geopardy">
+            <input type="button" id="btnDexguess" value="Dexguess">
+        </div>
+    </div>
 </body>
 
+<script>
+    const btnGeo = document.getElementById("btnGeopardy");
+    const btnDex = document.getElementById("btnDexguess");
+    const txtUser = document.getElementById("txtUser");
 
-<script src="js/indexscript.js"></script>
+    btnGeo.addEventListener('click', () => {
+        if(getUser() != null){
+            if(getUser() == 'admin'){
+            window.location.href = 'mapadmin.html'
+            }else{
+            window.location.href = 'map.html?username='+encodeURIComponent(getUser());
+            }
+        }
+        
+    })
+
+    btnDex.addEventListener('click', () => {
+        if(getUser() != null){
+            if(getUser() == 'admin'){
+            window.location.href = 'dexadmin.html'
+            }else{
+            window.location.href = 'dexuser.html?username='+encodeURIComponent(getUser());
+            }
+            
+        }
+
+        
+        
+    })
+
+    function getUser(){
+        if(txtUser.value != ''){
+        var username = txtUser.value;
+        return username;
+        
+    }
+    return null;
+    }
+</script>
 
 </html>

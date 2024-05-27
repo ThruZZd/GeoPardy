@@ -190,7 +190,7 @@ return {lname:name,llat:lat,llng:lng}
 }
 
 var donIcon = L.icon({
-    iconUrl: 'map-marker.png',
+    iconUrl: 'images/map-marker.png',
     shadowUrl: '',
 
     iconSize:     [30, 47], 

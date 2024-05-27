@@ -1,54 +1,78 @@
-/* indexstyle.css */
-
-/* General styles */
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f8ff; /* Light blue background */
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  text-align: center;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #a8e063, #56ab2f);
 }
 
-/* Header style */
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 320px;
+}
+
 h1 {
-  color: #333;
-  font-size: 2.5em;
-  margin-bottom: 20px;
+    margin-bottom: 40px;
+    color: #333;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
-/* Input field style */
-.userrd {
-  width: 300px;
-  padding: 10px;
-  margin: 10px 0;
-  font-size: 1.2em;
-  border: 2px solid #333;
-  border-radius: 5px;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+.inputs {
+    margin-bottom: 20px;
 }
 
-/* Button style */
-.btnrd {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+.inputs input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 2px solid #a8e063;
+    border-radius: 10px;
+    font-size: 18px;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.btnrd:hover {
-  background-color: #0056b3;
+.inputs input[type="text"]:focus {
+    border-color: #56ab2f;
+    box-shadow: 0 0 10px rgba(86, 171, 47, 0.5);
+    outline: none;
 }
 
-/* Centering the content */
-div {
-  margin: 10px;
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons input[type="button"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 30px;
+    font-size: 20px;
+    color: #333; /* Darker text color for better readability */
+    background: #88c057; /* Slightly darker green for better contrast */
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.buttons input[type="button"]:hover {
+    background: #6fa842;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.buttons input[type="button"]:active {
+    background: #578e36;
+    transform: translateY(0);
+    box-shadow: none;
 }

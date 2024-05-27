@@ -98,7 +98,7 @@ socket.on('reveal', (marks)=>{
 })
 
 var donIcon = L.icon({
-    iconUrl: 'map-marker.png',
+    iconUrl: 'images/map-marker.png',
     shadowUrl: '',
 
     iconSize:     [30, 47], 
