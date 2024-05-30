@@ -1,0 +1,200 @@
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    background-color: #0044cc;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    font-size: 2em;
+}
+
+h2 {
+    color: #0044cc;
+    border-bottom: 2px solid #0044cc;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+}
+
+#search-section, #enter-card-section {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    flex: 1;
+}
+
+#search-section label, #enter-card-section label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #0044cc;
+}
+
+#search-section input, #enter-card-section input,
+#search-section select, #enter-card-section select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+#search-section button, #enter-card-section button {
+    background-color: #0044cc;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+}
+
+#search-section button:hover, #enter-card-section button:hover {
+    background-color: #003399;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#enter-card-section .form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+#enter-card-section .form-row > div {
+    flex: 1;
+    margin-right: 10px;
+}
+
+#enter-card-section .form-row > div:last-child {
+    margin-right: 0;
+}
+
+#results-box {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px;
+    flex: 1 1 100%;
+    min-height: 200px;
+}
+
+#results-box div {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#results-box div:last-child {
+    border-bottom: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    #enter-card-section .form-row {
+        flex-direction: column;
+    }
+
+    #enter-card-section .form-row > div {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    #enter-card-section .form-row > div:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.results-table th,
+.results-table td {
+    padding: 15px;
+    border: none;
+    text-align: center;
+    transition: color 0.3s ease;
+}
+
+.results-table th {
+    background-color: #4CAF50;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.results-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.results-table tbody tr:hover {
+    background-color: #ddd;
+    transition: background-color 0.3s ease;
+}
+
+.results-table tbody tr:hover td {
+    color: #333;
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.results-table tbody tr:nth-child(even):hover {
+    background-color: #f2f2f2;
+}
+
+.results-table tbody tr:nth-child(even):hover td {
+    color: #333;
+}
+
+.results-table th,
+.results-table td {
+    font-size: 16px;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #0044cc;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 5px;
+    transform: scale(1.8);
+}
+
+.checkbox-container label {
+    margin: 0;
+    cursor: pointer;
+}

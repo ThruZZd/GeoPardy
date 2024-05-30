@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" type="image/png" href="images/favi.png">
+    <title>Tobbs - Euro2024 Collection</title>
+    <link rel="icon" type="image/x-icon" href="public/favicon.ico">
+    <link rel="stylesheet" href="css/tobbsstyle.css">
+</head>
+
+<body>
+    <h1 id="lol">Scheiß Scholz!</h1>
+    
+    <div class="container">
+        <div id="search-section">
+            <h2>Nach Karten suchen:</h2>
+            <div>
+                <label for="user-select">User:</label>
+                <select id="user-select">
+                    <!-- User options will be populated dynamically -->
+                </select>
+            </div>
+            
+            <div>
+                <label for="card-id">Karten-ID:</label>
+                <input list="card-ids" id="card-id" placeholder="Karten-ID eingeben...">
+                <datalist id="card-ids">
+                    <!-- Card ID options will be populated dynamically -->
+                </datalist>
+            </div>
+
+            <div class="checkbox-container">
+                <input type="checkbox" id="show-duplicates">
+                <label for="show-duplicates">Nur doppelte anzeigen</label>
+            </div>
+
+            <div>
+                <button onclick="searchCards()">Suchen</button>
+            </div>
+        </div>
+        
+        <div id="enter-card-section">
+            <h2>Neue Karte anlegen</h2>
+            <div>
+                <label for="new-card-id">Karten-ID:</label>
+                <input list="new-card-ids" id="new-card-id" placeholder="Enter card ID">
+                <datalist id="new-card-ids">
+                    <!-- Card ID options will be populated dynamically -->
+                </datalist>
+            </div>
+            
+            <div class="form-row">
+                <div>
+                    <label for="new-card-user">User:</label>
+                    <select id="new-card-user">
+                        <!-- User options will be populated dynamically -->
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="card-amount">Menge:</label>
+                    <select id="card-amount">
+                        <!-- Amount options -->
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="-1">-1</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button onclick="addNewCard()">Abschicken</button>
+        </div>
+    </div>
+    
+    <div id="results-box">
+        <!-- Search results will be displayed here -->
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/tobbsscript.js"></script>
+</body>
+
+</html>
