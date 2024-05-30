@@ -155,35 +155,74 @@ async function searchCards(csObj){
     }
     var query = ``;
 
+   if(dupSubtract === 0){
     if(user === "Alle"){
         if(hid === ""){
-            query = `SELECT u.name, uo.anzahl-`+dupSubtract+`, ca.heftid,ca.name_on,ca.special
+            query = `SELECT u.name, uo.anzahl, ca.heftid,ca.name_on,ca.special
             FROM Cards AS ca INNER JOIN user_owns AS uo ON ca.cid=uo.cid
             INNER JOIN Users AS u ON u.uid=uo.uid
-            WHERE anzahl-`+dupSubtract+` > 0
+            WHERE anzahl > 0
             ORDER BY heftid asc`
         }else{
-            query = `SELECT u.name, uo.anzahl-`+dupSubtract+`, ca.heftid,ca.name_on,ca.special
+            query = `SELECT u.name, uo.anzahl, ca.heftid,ca.name_on,ca.special
             FROM Cards AS ca INNER JOIN user_owns AS uo ON ca.cid=uo.cid
             INNER JOIN Users AS u ON u.uid=uo.uid
-            WHERE anzahl-`+dupSubtract+` > 0 AND ca.heftid='`+hid+`'
+            WHERE anzahl > 0 AND ca.heftid='`+hid+`'
             ORDER BY heftid asc`
         }
     }else{
         if(hid===""){
-            query = `SELECT u.name, uo.anzahl-`+dupSubtract+`, ca.heftid,ca.name_on,ca.special
+            query = `SELECT u.name, uo.anzahl, ca.heftid,ca.name_on,ca.special
             FROM Cards AS ca INNER JOIN user_owns AS uo ON ca.cid=uo.cid
             INNER JOIN Users AS u ON u.uid=uo.uid
-            WHERE anzahl-`+dupSubtract+` > 0 AND u.name='`+user+`'
+            WHERE anzahl > 0 AND u.name='`+user+`'
             ORDER BY heftid asc`
         }else{
-            query = `SELECT u.name, uo.anzahl-`+dupSubtract+`, ca.heftid,ca.name_on,ca.special
+            query = `SELECT u.name, uo.anzahl, ca.heftid,ca.name_on,ca.special
             FROM Cards AS ca INNER JOIN user_owns AS uo ON ca.cid=uo.cid
             INNER JOIN Users AS u ON u.uid=uo.uid
-            WHERE anzahl-`+dupSubtract+` > 0 AND u.name='`+user+`' AND ca.heftid='`+hid+`'
+            WHERE anzahl > 0 AND u.name='`+user+`' AND ca.heftid='`+hid+`'
             ORDER BY heftid asc`
         }
     }
+   }else{
+    if(user === "Alle"){
+        if(hid === ""){
+            query = `SELECT u.name, SUM(uo.anzahl)-1 AS anzahl, ca.heftid,ca.name_on,'Alle' AS special
+            FROM Cards AS ca INNER JOIN user_owns AS uo ON ca.cid=uo.cid
+            INNER JOIN Users AS u ON u.uid=uo.uid
+            GROUP BY u.name, ca.heftid, ca.name_on
+            HAVING SUM(uo.anzahl)-1>0
+            ORDER BY heftid asc`
+        }else{
+            query = `SELECT u.name, sum(uo.anzahl)-1 AS anzahl, ca.heftid,ca.name_on, 'Alle' AS special
+            FROM Cards AS ca INNER JOIN user_owns AS uo ON ca.cid=uo.cid
+            INNER JOIN Users AS u ON u.uid=uo.uid
+            WHERE ca.heftid='`+hid+`'
+            GROUP BY u.name, ca.heftid, ca.name_on
+            HAVING SUM(uo.anzahl)-1>0
+            ORDER BY heftid asc`
+        }
+    }else{
+        if(hid===""){
+            query = `SELECT u.name, SUM(uo.anzahl)-1 AS anzahl, ca.heftid,ca.name_on, 'Alle' AS special
+            FROM Cards AS ca INNER JOIN user_owns AS uo ON ca.cid=uo.cid
+            INNER JOIN Users AS u ON u.uid=uo.uid
+            WHERE u.name='`+user+`'
+            GROUP BY u.name, ca.heftid, ca.name_on
+            HAVING SUM(uo.anzahl)-1>0
+            ORDER BY heftid asc`
+        }else{
+            query = `SELECT u.name, SUM(uo.anzahl)-1 AS anzahl, ca.heftid,ca.name_on, 'Alle' AS special
+            FROM Cards AS ca INNER JOIN user_owns AS uo ON ca.cid=uo.cid
+            INNER JOIN Users AS u ON u.uid=uo.uid
+            WHERE u.name='`+user+`' AND ca.heftid='`+hid+`'
+            GROUP BY u.name, ca.heftid, ca.name_on
+            HAVING SUM(uo.anzahl)-1>0
+            ORDER BY heftid asc`
+        }
+    }
+   }
 
 
 
