@@ -257,10 +257,12 @@ async function addCardToDB(cInfo){
         VALUES (`+uid+`, `+anzahl+`, `+cid+`)
         ON CONFLICT (uid, cid)
         DO UPDATE SET anzahl = user_owns.anzahl + EXCLUDED.anzahl`);
-        cid = res.rows.map(item=>item.cid)[0]
+        
+        io.emit('addSuccess', {heftid:heftid,suc:true});
         
     } catch (err) {
         console.error('Query error', err.stack);
+        io.emit('addSuccess', {heftid:heftid,suc:false});
         
     } finally {
         await client.end();

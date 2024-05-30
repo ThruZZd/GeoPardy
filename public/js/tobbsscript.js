@@ -137,6 +137,31 @@ function addNewCard(){
     socket.emit('requestAdd', {user:user,heftid:cInf[0],special: cInf[1],anzahl:anz});
 }
 
+socket.on('addSuccess', (idandsuc)=>{
+    const suc = idandsuc.suc;
+    const hid = idandsuc.heftid;
+    if(suc){
+        showSuccessMessage(hid+" hinzugefügt!");
+    }else{
+        showFailureMessage("Fehler bei "+hid)
+    }
 
+})
+
+function showSuccessMessage(message) {
+    const statusElement = document.getElementById('operation-status');
+    statusElement.textContent = message;
+    statusElement.className = 'success';
+    statusElement.classList.remove('hidden');
+}
+
+// Function to display a failure message
+function showFailureMessage(message) {
+    const statusElement = document.getElementById('operation-status');
+    statusElement.textContent = message;
+    statusElement.className = 'failure';
+    statusElement.classList.remove('hidden');
+
+}
 
 

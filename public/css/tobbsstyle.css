@@ -198,3 +198,26 @@ h2 {
     margin: 0;
     cursor: pointer;
 }
+
+.hidden {
+    display: none;
+}
+
+#operation-status {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+}
+
+#operation-status.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+#operation-status.failure {
+    background-color: #f8d7da;
+    color: #721c24;
+}
