@@ -13,6 +13,14 @@ h1 {
     padding: 20px;
     margin: 0;
     font-size: 2em;
+    position: relative;
+}
+
+.side-image {
+    width: 50px;  /* Adjust the size as needed */
+    height: auto;
+    vertical-align: middle;
+    margin: 0 10px;
 }
 
 h2 {
