@@ -116,6 +116,7 @@ socket.on('searchResult', (result) => {
 
 
 function addNewCard(){
+
     const user = addSelectUser.value;
     const enteredValue = addSelectCardField.value;
     const dataListOptions = Array.from(addSelectCard.options).map(option => option.value);
@@ -133,7 +134,7 @@ function addNewCard(){
     
     const cInf = hid.split(',');
 
-    
+    addSelectCardField.value = "";
     socket.emit('requestAdd', {user:user,heftid:cInf[0],special: cInf[1],anzahl:anz});
 }
 
