@@ -229,3 +229,16 @@ h2 {
     background-color: #f8d7da;
     color: #721c24;
 }
+
+#tabledesc {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #4CAF50; /* Lighter blue background */
+    color: #ffffff; /* Darker blue text */
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}

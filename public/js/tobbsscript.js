@@ -73,11 +73,16 @@ function searchCards(){
 socket.on('searchResult', (result) => {
     const resultsBox = document.getElementById('results-box');
     resultsBox.innerHTML = ''; // Clear previous content
-    
+    updateTableDesc("Ergebnis: "+ searchSelectUser.value + "   "+searchSelectCardField.value);
+    searchSelectCardField.value = "";
     if (result.length === 0) {
         resultsBox.innerHTML = '<p>No results found</p>';
+        
         return;
     }
+
+    //Show terms and clear box
+    
 
     // Create table element
     const table = document.createElement('table');
@@ -163,6 +168,17 @@ function showFailureMessage(message) {
     statusElement.className = 'failure';
     statusElement.classList.remove('hidden');
 
+}
+
+function updateTableDesc(text) {
+    const tabledesc = document.getElementById('tabledesc');
+    if (text.trim() === '') {
+        tabledesc.classList.add('hidden');
+        tabledesc.textContent = ''; // Clear any previous text
+    } else {
+        tabledesc.textContent = text;
+        tabledesc.classList.remove('hidden');
+    }
 }
 
 
